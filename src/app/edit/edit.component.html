@@ -1,0 +1,44 @@
+<div class="row justify-content-md-center mt-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Edit Profile</h5>
+                <form (submit)="updateProfile()">
+                    <div class="mb-3">
+                        <label
+                            for="name"
+                            class="form-label">
+                            Name:
+                        </label>
+                        <input type="text" id="name" class="form-control"
+                            [(ngModel)]="user.name"
+                            name="name"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            Email:
+                        </label>
+                        <input type="email" id="email" class="form-control"
+                            [(ngModel)]="user.email"
+                            name="name"
+                            required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-block">Update Profile</button>
+                            <p class="text-center"><a routerLink="/dashboard">Back dashboard</a></p>
+                    </div>
+                </form>
+
+                <div *ngIf="validationErrors.length > 0">
+                    <ul>
+                        <li *ngFor="let error of validationErrors">{{ error
+                            }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
